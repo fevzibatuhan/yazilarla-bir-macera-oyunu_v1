@@ -42,6 +42,11 @@ mutfak = Oda("Mutfak", "Geniş ve iyi donanımlı bir mutfak.")
 oturma_odasi = Oda("Oturma Odası", "Şömineli rahat bir oturma odası.")
 yatak_odasi = Oda("Yatak Odası", "Büyük bir yatakla donatılmış rahat bir yatak odası.")
 bahce = Oda("Bahçe", "Renkli çiçeklerle süslü güzel bir bahçe.")
+depo = Oda("Depo", "Karanlık ve dağınık bir depo.")
+disari = Oda("Dışarı", "Taze hava ve güneş ışığı sizi karşılıyor. Özgürlük kokuyor.")
+
+
+
 
 anahtar = Esya("Anahtar", "Parlak altın bir anahtar.")
 kilic = Esya("Kilic", "Keskin ve sağlam bir kilic.")
@@ -54,11 +59,19 @@ oturma_odasi.odayi_bagla("batı", yatak_odasi)
 yatak_odasi.odayi_bagla("doğu", oturma_odasi)
 oturma_odasi.odayi_bagla("doğu", bahce)
 bahce.odayi_bagla("batı", oturma_odasi)
+bahce.odayi_bagla("güney", disari)
+disari.odayi_bagla("kuzey", bahce)
+mutfak.odayi_bagla("güney", oturma_odasi)
+mutfak.odayi_bagla("doğu", depo)
+depo.odayi_bagla("batı",mutfak)
+depo.odayi_bagla("güney",bahce)
+
 
 
 # Esyaları odalara ekleme
 mutfak.esya_ekle(anahtar)
 yatak_odasi.esya_ekle(kilic)
+disari.esya_ekle(kilic)
 
 
 # Oyun fonksiyonları
